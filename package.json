@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-echoplugin",
+  "version": "0.0.1",
+  "description": "EchoPlugin",
+  "cordova": {
+    "id": "cordova-plugin-echoplugin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gjwdijk/echo.git"
+  },
+  "keywords": [
+    "echo",
+    "Notification",
+    "Message",
+    "Alert",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "author": "WeFitter",
+  "license": "WeFitter",
+  "bugs": {
+    "url": "https://github.com/gjwdijk/echo/issues"
+  },
+  "homepage": "https://github.com/gjwdijk/echo/issues#README.md"
+}

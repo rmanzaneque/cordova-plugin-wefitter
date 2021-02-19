@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-echoplugin" version="0.0.1">
+    <name>EchoPlugin</name>
+
+    <description>An IOS native hybrid echo Cordova plugin</description>
+    <license>MIT</license>
+
+    <keywords>cordova,ios,message,alert</keywords>
+    <repo>https://github.com/gjwdijk/echo.git</repo><issue></issue>
+  
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+    <asset src="www/echo.js" target="js/echo.js"/>
+
+    <js-module src="www/echo.js" name="echo">
+        <clobbers target="echo" />
+    </js-module>
+
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="Echo">
+                <param name="ios-package" value="Echo" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/Echo.h" target-dir="EchoPlugin"/>
+        <source-file src="src/ios/Echo.m" target-dir="EchoPlugin"/>
+
+        <!-- Usage description of Health, mandatory since iOS 10 -->
+        <preference name="HEALTH_READ_PERMISSION" default="WeFitter would like to read your activity data" />
+        <preference name="HEALTH_WRITE_PERMISSION" default=" " />
+        <config-file target="*-Info.plist" parent="NSHealthShareUsageDescription">
+            <string>$HEALTH_READ_PERMISSION</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="NSHealthUpdateUsageDescription">
+            <string>$HEALTH_WRITE_PERMISSION</string>
+        </config-file>
+
+        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.healthkit">
+            <true/>
+        </config-file>
+
+        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.healthkit">
+            <true/>
+        </config-file>
+
+        <framework src="HealthKit.framework" weak="true" />
+        <source-file src="src/ios/WeFitterLib.xcframework" target-dir="lib" framework="true" />
+
+    </platform>
+
+</plugin>
+
