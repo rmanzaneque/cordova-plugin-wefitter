@@ -5,6 +5,8 @@
 
 @implementation WeFitterHealthKit
 
+NSString* API_URL=@"https://api.wefitter.com/api/";
+
 - (void)ping:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
@@ -28,7 +30,7 @@
     NSLog(@"%@", bearerToken);
 
     // Begin setup WeFitter
-    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/" clientId:@"" clientSecret:@"" startDate:nil];
+    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:API_URL clientId:@"" clientSecret:@"" startDate:nil];
     NSError *error;
     BOOL success = [WeFitter setupWithConfig:config error:&error];
     if (!success) {
@@ -72,7 +74,7 @@
 
 
     // Begin setup WeFitter
-    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/" clientId:@"" clientSecret:@"" startDate:nil];
+    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:API_URL clientId:@"" clientSecret:@"" startDate:nil];
     NSError *error;
     BOOL success = [WeFitter setupWithConfig:config error:&error];
     if (!success) {
