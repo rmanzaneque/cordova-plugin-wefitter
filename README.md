@@ -1,20 +1,13 @@
-# Cordova Echo Plugin
+# Cordova WeFitterHealthKit Plugin
 
-Simple plugin that returns your string prefixed with ECHO.
+Cordova plugin for connecting with the WeFitter ios HealthKit SDK.
 
-Greeting a user with "ECHO, world" is something that could be done in JavaScript. 
-This plugin provides a simple example demonstrating how Cordova plugins work.
 
 ## Using
 
-Create a new Cordova Project
-
-    $ cordova create hello com.example.helloapp Hello
-    
 Install the plugin
 
-    $ cd hello
-    $ cordova plugin add https://github.com/gjwdijk/echo.git
+    $ cordova plugin add https://github.com/gjwdijk/cordova-plugin-wefitter.git
     
 
 Edit `www/js/index.js` and add the following code inside `onDeviceReady`
@@ -25,17 +18,20 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
     }
 
     var failure = function() {
-        alert("Error calling Echo Plugin");
+        alert("Error calling WeFitter HealthKit Plugin");
     }
 
-    echo.echo("World", success, failure);
+    bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ8.eyJpc3MiOiJHSi1URVNUIiwiYXBwIjoiYTI3NTlkMzktYTM4Ni00NWQ3LThkYTItNWQzOTExMjdhMDNjIiwiaWF0IjoxNjEzNzU4MDE0LCJpZCI6IjViZDg4NjU3LTk2ZGUtNDUxYi04ZmZkLTUwYTQyMmQ0YWJkMiJ9.ExC79TFCv9KVDozI-dXEn1jJ8N-NYHixTBBAXq2tXK4"
+
+    wefitterhealthkit.connect(bearerToken, success, failure);
+
 ```
 
-Install iOS or Android platform
+Install iOS platform
 
     cordova platform add ios
     
 Run the code
 
-    cordova run 
+    cordova run ios
 

@@ -1,16 +1,16 @@
 {
   "name": "cordova-plugin-echoplugin",
   "version": "0.0.1",
-  "description": "EchoPlugin",
+  "description": "WeFitterHealthKitPlugin",
   "cordova": {
-    "id": "cordova-plugin-echoplugin",
+    "id": "cordova-plugin-wefitter",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gjwdijk/echo.git"
+    "url": "git+https://github.com/gjwdijk/cordova-plugin-wefitter.git"
   },
   "keywords": [
     "echo",
@@ -23,7 +23,7 @@
   "author": "WeFitter",
   "license": "WeFitter",
   "bugs": {
-    "url": "https://github.com/gjwdijk/echo/issues"
+    "url": "https://help.wefitter.com/en/support/home"
   },
-  "homepage": "https://github.com/gjwdijk/echo/issues#README.md"
+  "homepage": "https://wefitter.com/"
 }

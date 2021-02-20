@@ -1,10 +1,10 @@
-/********* Echo.h Cordova Plugin Header *******/
+/********* WeFitterHealthKit.h Cordova Plugin Header *******/
 
 #import <Cordova/CDVPlugin.h>
 #import <WeFitterLib/WeFitterLib-Swift.h>
 
 
-@interface Echo : CDVPlugin
+@interface WeFitterHealthKit : CDVPlugin
 
 - (void)wefitter:(CDVInvokedUrlCommand*)command;
 - (void)getStatus:(CDVInvokedUrlCommand*)command;

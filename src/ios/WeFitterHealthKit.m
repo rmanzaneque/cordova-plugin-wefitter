@@ -1,9 +1,9 @@
-/********* Echo.m Cordova Plugin Implementation *******/
+/********* WeFitterHealthKit.m Cordova Plugin Implementation *******/
 
-#import "Echo.h"
+#import "WeFitterHealthKit.h"
 #import <Cordova/CDVPlugin.h>
 
-@implementation Echo
+@implementation WeFitterHealthKit
 
 - (void)wefitter:(CDVInvokedUrlCommand*)command
 {

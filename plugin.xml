@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-echoplugin" version="0.0.1">
-    <name>EchoPlugin</name>
+        id="cordova-plugin-wefitter" version="0.0.1">
+    <name>WeFitterHealthKitPlugin</name>
 
-    <description>An IOS native hybrid echo Cordova plugin</description>
+    <description>A Cordova plugin for WeFitter Healthkit SDK</description>
     <license>MIT</license>
 
     <keywords>cordova,ios,message,alert</keywords>
-    <repo>https://github.com/gjwdijk/echo.git</repo><issue></issue>
+    <repo>https://github.com/gjwdijk/cordova-plugin-wefitter.git</repo>
+    <issue></issue>
   
     <engines>
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
 
-    <asset src="www/echo.js" target="js/echo.js"/>
+    <asset src="www/wefitterhealthkit.js" target="js/wefitterhealthkit.js"/>
 
-    <js-module src="www/echo.js" name="echo">
-        <clobbers target="echo" />
+    <js-module src="www/wefitterhealthkit.js" name="wefitterhealthkit">
+        <clobbers target="wefitterhealthkit" />
     </js-module>
 
 
     <platform name="ios">
         <config-file target="config.xml" parent="/widget">
-            <feature name="Echo">
-                <param name="ios-package" value="Echo" />
+            <feature name="WeFitterHealthKit">
+                <param name="ios-package" value="WeFitterHealthKit" />
             </feature>
         </config-file>
 
-        <header-file src="src/ios/Echo.h" target-dir="EchoPlugin"/>
-        <source-file src="src/ios/Echo.m" target-dir="EchoPlugin"/>
+        <header-file src="src/ios/WeFitterHealthKit.h" target-dir="WeFitterHealthKitPlugin"/>
+        <source-file src="src/ios/WeFitterHealthKit.m" target-dir="WeFitterHealthKitPlugin"/>
 
         <!-- Usage description of Health, mandatory since iOS 10 -->
         <preference name="HEALTH_READ_PERMISSION" default="WeFitter would like to read your activity data" />
