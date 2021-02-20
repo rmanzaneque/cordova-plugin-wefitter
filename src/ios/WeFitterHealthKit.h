@@ -6,8 +6,7 @@
 
 @interface WeFitterHealthKit : CDVPlugin
 
-- (void)wefitter:(CDVInvokedUrlCommand*)command;
-- (void)getStatus:(CDVInvokedUrlCommand*)command;
+- (void)ping:(CDVInvokedUrlCommand*)command;
 - (void)connect:(CDVInvokedUrlCommand*)command;
 - (void)disconnect:(CDVInvokedUrlCommand*)command;
 

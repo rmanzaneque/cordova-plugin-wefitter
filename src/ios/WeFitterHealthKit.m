@@ -5,7 +5,7 @@
 
 @implementation WeFitterHealthKit
 
-- (void)wefitter:(CDVInvokedUrlCommand*)command
+- (void)ping:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
     NSString* echo = [command.arguments objectAtIndex:0];
@@ -19,10 +19,13 @@
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
-
-- (void)getStatus:(CDVInvokedUrlCommand*)command
+- (void)connect:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
+    NSString* msg;
+
+    NSString* bearerToken = [command.arguments objectAtIndex:0];
+    NSLog(@"%@", bearerToken);
 
     // Begin setup WeFitter
     WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/" clientId:@"" clientSecret:@"" startDate:nil];
@@ -33,54 +36,42 @@
     }
     // End setup WeFitter
 
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
-}
-
-
-- (void)connect:(CDVInvokedUrlCommand*)command
-{
-    CDVPluginResult* pluginResult = nil;
-
-    NSString* bearerToken = [command.arguments objectAtIndex:0];
-    NSLog(@"%@", bearerToken);
-
-    // Begin setup WeFitter
-    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/v1.2/" clientId:@"" clientSecret:@"" startDate:nil];
-    NSError *error;
-    BOOL success = [WeFitter setupWithConfig:config error:&error];
-    if (!success) {
-        NSLog(@"Error setting up WeFitter: %@", error.localizedDescription);
-    }
-    // End setup WeFitter
-
     if (WeFitter.canConnectToHealthData) {
         [WeFitter connectBearerToken:bearerToken completion:^(BOOL success, NSError *error) {
+            CDVPluginResult* pluginResult = nil;
+            NSString* msg;
             if (success) {
-                NSLog(@"HealthKit is successfully connected to WeFitter. Data will be synced automatically");
+                msg = @"HealthKit is successfully connected to WeFitter. Data will be synced automatically";
+                NSLog(@"%@", msg);
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: msg];
+
             } else {
-                NSLog(@"Error connecting profile: %@", error.localizedDescription);
+                msg = [NSString stringWithFormat:@"Error connecting profile: %@\" ",error.localizedDescription];
+                NSLog(@"%@", msg);
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: msg];
             }
             if ([WeFitter currentStatus] == StatusConnected) {
-                NSLog(@"Connected profile: %@", [WeFitter currentlyConnectedProfile]);
+                msg = [NSString stringWithFormat:@"Connected profile: %@\" ",[WeFitter currentlyConnectedProfile]];
+                NSLog(@"%@", msg);
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: msg];
             }
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
         }];
     } else {
-        NSLog(@"Cannot connect to HealthKit data");
+        msg = @"Cannot connect to HealthKit data";
+        NSLog(@"%@", msg);
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString: msg];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-
 }
 
 - (void)disconnect:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-
-    NSString *bearerToken = @"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJHSi1URVNUIiwiYXBwIjoiYTI3NTlkMzktYTM4Ni00NWQ3LThkYTItNWQzOTExMjdhMDNjIiwiaWF0IjoxNjEzNzU4MDE0LCJpZCI6IjViZDg4NjU3LTk2ZGUtNDUxYi04ZmZkLTUwYTQyMmQ0YWJkMiJ9.ExC79TFCv9KVDozI-dXEn1jJ8N-NYHixTBBAXq2tXK4";
+    NSString* bearerToken = [command.arguments objectAtIndex:0];
 
     // Begin setup WeFitter
-    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/v1.2/" clientId:@"" clientSecret:@"" startDate:nil];
+    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/" clientId:@"" clientSecret:@"" startDate:nil];
     NSError *error;
     BOOL success = [WeFitter setupWithConfig:config error:&error];
     if (!success) {
@@ -90,10 +81,14 @@
 
     [WeFitter disconnect];
 
-    NSLog(@"Disconnected from to HealthKit data");
+    msg = @"Disconnected from to HealthKit data";
+    NSLog(@"%@", msg);
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString: msg];
 
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 
 }
 
 @end
+
+

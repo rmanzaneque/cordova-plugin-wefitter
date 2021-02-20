@@ -1,9 +1,6 @@
 module.exports = {
-    echo: function (name, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "WeFitterHealthKit", "wefitter", [name]);
-    },
-    getStatus: function (name, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "WeFitterHealthKit", "getStatus", [name]);
+    ping: function (name, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "WeFitterHealthKit", "ping", [name]);
     },
     connect: function (name, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "WeFitterHealthKit", "connect", [name]);
