@@ -22,6 +22,9 @@
 
 
     <platform name="ios">
+
+        <preference name="WEFITTER_API_URL" default="""https://api.wefitter.com/api/">
+        
         <config-file target="config.xml" parent="/widget">
             <feature name="WeFitterHealthKit">
                 <param name="ios-package" value="WeFitterHealthKit" />

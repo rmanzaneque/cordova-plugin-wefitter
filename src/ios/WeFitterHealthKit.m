@@ -68,7 +68,6 @@
 - (void)disconnect:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
-    NSString* bearerToken = [command.arguments objectAtIndex:0];
     NSString* msg;
 
 
