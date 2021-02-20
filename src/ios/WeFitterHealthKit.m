@@ -69,6 +69,8 @@
 {
     CDVPluginResult* pluginResult = nil;
     NSString* bearerToken = [command.arguments objectAtIndex:0];
+    NSString* msg;
+
 
     // Begin setup WeFitter
     WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:@"https://api.wefitter.com/api/" clientId:@"" clientSecret:@"" startDate:nil];
