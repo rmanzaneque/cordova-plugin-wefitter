@@ -42,7 +42,6 @@
 {
     CDVPluginResult* pluginResult = nil;
 
-    NSString *bearerToken = @"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJHSi1URVNUIiwiYXBwIjoiYTI3NTlkMzktYTM4Ni00NWQ3LThkYTItNWQzOTExMjdhMDNjIiwiaWF0IjoxNjEzNzU4MDE0LCJpZCI6IjViZDg4NjU3LTk2ZGUtNDUxYi04ZmZkLTUwYTQyMmQ0YWJkMiJ9.ExC79TFCv9KVDozI-dXEn1jJ8N-NYHixTBBAXq2tXK4";
     NSString* bearerToken = [command.arguments objectAtIndex:0];
     NSLog(@"%@", bearerToken);
 

@@ -9,7 +9,7 @@
 - (void)wefitter:(CDVInvokedUrlCommand*)command;
 - (void)getStatus:(CDVInvokedUrlCommand*)command;
 - (void)connect:(CDVInvokedUrlCommand*)command;
-- (void)disconnect:(CDVInvokedUrlCommand*)command
+- (void)disconnect:(CDVInvokedUrlCommand*)command;
 
 @end
 
