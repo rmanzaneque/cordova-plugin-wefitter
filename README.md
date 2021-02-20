@@ -17,13 +17,17 @@ Edit `www/js/index.js` and add the following code inside `onDeviceReady`
         alert(message);
     }
 
-    var failure = function() {
-        alert("Error calling WeFitter HealthKit Plugin");
+    var failure = function(message) {
+        msg = "Error calling WeFitter Plugin: " + message
+        alert(msg);
     }
 
-    bearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ8.eyJpc3MiOiJHSi1URVNUIiwiYXBwIjoiYTI3NTlkMzktYTM4Ni00NWQ3LThkYTItNWQzOTExMjdhMDNjIiwiaWF0IjoxNjEzNzU4MDE0LCJpZCI6IjViZDg4NjU3LTk2ZGUtNDUxYi04ZmZkLTUwYTQyMmQ0YWJkMiJ9.ExC79TFCv9KVDozI-dXEn1jJ8N-NYHixTBBAXq2tXK4"
+    // Test Plugin using ping message
+    wefitterhealthkit.ping("WeFitter PING", success, failure);
 
-    wefitterhealthkit.connect(bearerToken, success, failure);
+    // Connect profile
+    var bearertoken = "<YOUR BEARER TOKEN FROM THE WEFITTER API>"
+    wefitterhealthkit.connect(bearertoken, success, failure);
 
 ```
 
