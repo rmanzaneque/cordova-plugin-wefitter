@@ -92,6 +92,24 @@ NSString* API_URL=@"https://api.wefitter.com/api/";
 
 }
 
+- (void)getStatus:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* pluginResult = nil;
+
+    // Begin setup WeFitter
+    WeFitterConfig *config = [[WeFitterConfig alloc] initWithUrl:API_URL clientId:@"" clientSecret:@"" startDate:nil];
+    NSError *error;
+    BOOL success = [WeFitter setupWithConfig:config error:&error];
+    if (!success) {
+       NSLog(@"Error setting up WeFitter: %@", error.localizedDescription);
+    }
+    // End setup WeFitter
+
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsNSInteger:WeFitter.currentStatus];
+
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
 
 

@@ -9,6 +9,7 @@
 - (void)ping:(CDVInvokedUrlCommand*)command;
 - (void)connect:(CDVInvokedUrlCommand*)command;
 - (void)disconnect:(CDVInvokedUrlCommand*)command;
+- (void)getStatus:(CDVInvokedUrlCommand*)command;
 
 @end
 
