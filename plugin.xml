@@ -49,7 +49,10 @@
             <true/>
         </config-file>
 
+		<!-- WeFitter library -->
+        <framework src="src/ios/WeFitterLib.xcframework" custom="true" embed="true" />
         <framework src="HealthKit.framework" weak="true" />
+
         <source-file src="src/ios/WeFitterLib.xcframework" target-dir="lib" framework="true" />
 
     </platform>
