@@ -49,9 +49,17 @@
             <true/>
         </config-file>
 
-        <framework src="HealthKit.framework" weak="true" />
-        <source-file src="src/ios/WeFitterLib.xcframework" target-dir="lib" framework="true" />
+        <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.healthkit.background-delivery">
+            <true/>
+        </config-file>
 
+        <config-file target="*/Entitlements-Release.plist" parent="com.apple.developer.healthkit.background-delivery">
+            <true/>
+        </config-file>
+
+		<!-- WeFitter library -->
+        <framework src="src/ios/WeFitterLib.xcframework" custom="true" embed="true" />
+        <framework src="HealthKit.framework" weak="true" />
     </platform>
 
 </plugin>
