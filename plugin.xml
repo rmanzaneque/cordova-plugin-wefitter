@@ -9,7 +9,7 @@
     <keywords>cordova,ios,message,alert</keywords>
     <repo>https://github.com/gjwdijk/cordova-plugin-wefitter.git</repo>
     <issue></issue>
-  
+
     <engines>
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
@@ -32,13 +32,13 @@
         <source-file src="src/ios/WeFitterHealthKit.m" target-dir="WeFitterHealthKitPlugin"/>
 
         <!-- Usage description of Health, mandatory since iOS 10 -->
-        <preference name="HEALTH_READ_PERMISSION" default="WeFitter would like to read your activity data" />
-        <preference name="HEALTH_WRITE_PERMISSION" default=" " />
+        <preference name="HEALTH_READ_PERMISSION" default="Esto permite poder recoger tus datos biométricos de la aplicación de salud" />
+        <preference name="HEALTH_WRITE_PERMISSION" default="Esto permite poder recoger tus datos biométricos de la aplicación de salud" />
         <config-file target="*-Info.plist" parent="NSHealthShareUsageDescription">
-            <string>$HEALTH_READ_PERMISSION</string>
+            <string>Esto permite poder recoger tus datos biométricos de la aplicación de salud</string>
         </config-file>
         <config-file target="*-Info.plist" parent="NSHealthUpdateUsageDescription">
-            <string>$HEALTH_WRITE_PERMISSION</string>
+            <string>Esto permite poder recoger tus datos biométricos de la aplicación de salud</string>
         </config-file>
 
         <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.healthkit">
