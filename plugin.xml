@@ -32,15 +32,6 @@
         <source-file src="src/ios/WeFitterHealthKit.m" target-dir="WeFitterHealthKitPlugin"/>
 
         <!-- Usage description of Health, mandatory since iOS 10 -->
-        <preference name="HEALTH_READ_PERMISSION" default="Esto permite poder recoger tus datos biométricos de la aplicación de salud" />
-        <preference name="HEALTH_WRITE_PERMISSION" default="Esto permite poder recoger tus datos biométricos de la aplicación de salud" />
-        <config-file target="*-Info.plist" parent="NSHealthShareUsageDescription">
-            <string>Esto permite poder recoger tus datos biométricos de la aplicación de salud</string>
-        </config-file>
-        <config-file target="*-Info.plist" parent="NSHealthUpdateUsageDescription">
-            <string>Esto permite poder recoger tus datos biométricos de la aplicación de salud</string>
-        </config-file>
-
         <config-file target="*/Entitlements-Debug.plist" parent="com.apple.developer.healthkit">
             <true/>
         </config-file>
