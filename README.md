@@ -39,3 +39,20 @@ Run the code
 
     cordova run ios
 
+##IOS
+### Info.plist (Añadir en la aplicación que importa el plugin).
+
+| Parent                              | String                                                                         | Description                                                                                                     |
+| ----------------------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `NSHealthShareUsageDescription`     | `Esto permite poder recoger tus datos biométricos de la aplicación de salud.`  | A message to the user that explains why the app requested permission to read samples from the HealthKit store.  |
+| `NSHealthUpdateUsageDescription`    | `Esto permite poder recoger tus datos biométricos de la aplicación de salud.`  | A message to the user that explains why the app requested permission to save samples to the HealthKit store.    |
+
+# Changelog
+
+## [0.0.2] - 11-11-2021
+
+### Changed
+
+- Deleted Info.plist texts conflict other plugins (must be added by the application importing the plugin).
+- Updated README.md with the necessary texts to import.
+

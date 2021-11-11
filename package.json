@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-echoplugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "WeFitterHealthKitPlugin",
   "cordova": {
     "id": "cordova-plugin-wefitter",
