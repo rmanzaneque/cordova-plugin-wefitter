@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-echoplugin",
+  "name": "cordova-plugin-wefitter",
   "version": "0.0.3",
   "description": "WeFitterHealthKitPlugin",
   "cordova": {
@@ -13,10 +13,7 @@
     "url": "git+https://github.com/gjwdijk/cordova-plugin-wefitter.git"
   },
   "keywords": [
-    "echo",
-    "Notification",
-    "Message",
-    "Alert",
+    "wefitter",
     "ecosystem:cordova",
     "cordova-ios"
   ],
