@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-wefitter" version="0.0.2">
+        id="cordova-plugin-wefitter" version="0.0.3">
     <name>WeFitterHealthKitPlugin</name>
 
     <description>A Cordova plugin for WeFitter Healthkit SDK</description>
